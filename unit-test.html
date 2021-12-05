@@ -1,0 +1,41 @@
+<script src="scripts/cstest.js" ></script>
+<script>
+    cstest.describe("multiplicationTable" ,() =>{
+
+        // Run Test 1
+        cstest.test("Test 1", () => {
+            let index = 0;
+
+            let testData1 = [
+                {number : 5, i : 1, result : 5},
+                {number : 5, i : 2, result : 10},
+                {number : 5, i : 3, result : 15},
+                {number : 5, i : 4, result : 20},
+                {number : 5, i : 5, result : 25},
+                {number : 5, i : 6, result : 30},
+                {number : 5, i : 7, result : 35},
+                {number : 5, i : 8, result : 40},
+                {number : 5, i : 9, result : 45},
+                {number : 5, i : 10, result : 50},
+                
+            ];
+            
+            function test1(number , i , result){
+                cstest.expect(number).toEqual(testData1[index].number).browser();
+
+                cstest.expect(i).toEqual(testData1[index].i).browser();
+
+                cstest.expect(result).toEqual(testData1[index].result).browser();
+
+                index++;
+            }
+
+            
+
+        })
+        multiplicationTable(5, test1);
+    });
+
+
+
+</script>
