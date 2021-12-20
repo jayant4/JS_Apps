@@ -37,5 +37,19 @@ Array.prototype.myForeach = function (callback) {
 }
 
 
-numbers.myForeach((item) =>{console.log(item);})
-books.myForeach((item)=>{console.log(item.title , " : ", item.Price);});
+numbers.myForeach((item) => { console.log(item); })
+books.myForeach((item) => { console.log(item.title, " : ", item.Price); });
+
+
+const arrFn = {
+    "addition": (item1, item2) => { return item1 + item2 },
+    "substraction": (item1, item2) => { return item1 - item2 },
+    "multipication": (item1, item2) => { return item1 * item2 },
+    "division": (item1, item2) => { return item1 / item2 },
+    "floor_division": (item1, item2) => { return Math.floor(item1 / item2) },
+    "power": (item1, item2) => { return Math.pow(item1, item2) },
+}
+console.log("-------------------------------------");
+console.log(arrFn.division(6,5));
+console.log(arrFn.floor_division(6,5));
+console.log(arrFn.power(2,5));
