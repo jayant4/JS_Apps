@@ -1,0 +1,55 @@
+<html>
+	<head> </head>
+
+	<body>
+		
+	</body>
+</html>
+
+<script>
+
+    class Counter {
+        constructor(/* this = reference of newly created object */) { 
+            this._count = 0 ; 
+            this._div=null;
+        }
+        increment(/* this = receive reference of calling object */) { 
+            ++this._count;
+            this._div.innerHTML=this._count;
+        }
+        decrement(/* this = receive reference of calling object */) {
+            --this._count;
+            this._div.innerHTML=this._count;
+        }
+        createUI(/* this = receive reference of calling object */) {
+            const incrementButton = window.document.createElement ( "button" );
+            incrementButton.innerHTML = "Increment";
+            incrementButton.onclick= () => this.increment();
+            window.document.body.appendChild(incrementButton);
+
+            this._div = window.document.createElement ( "div" );
+            this._div.innerHTML = this._count;
+            window.document.body.appendChild(this._div);
+
+            const decrementButton = window.document.createElement ( "button" );
+            decrementButton.innerHTML = "Decrement";
+            decrementButton.onclick= () => {this.decrement()};
+            window.document.body.appendChild(decrementButton);
+         
+            const hr = window.document.createElement ( "hr" );
+            window.document.body.appendChild(hr);
+        }
+        display(/* this = receive reference of calling object */) { 
+        }
+    }
+
+    const c1 = new Counter() ; 
+    c1.createUI();
+
+    const c2 = new Counter() ; 
+    c2.createUI();
+    
+    const c3 = new Counter() ; 
+    c3.createUI();
+    
+</script>
