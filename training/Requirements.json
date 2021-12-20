@@ -1,0 +1,10 @@
+[
+    {
+        "heading": "Background Worker",
+        "description": "On start button click a infinite loop will start with a counter and will be displayed in the UI. On stop button click the loop will stop. All work should happen in background and the UI should be responsive while the calculations are happening"
+    },
+    {
+        "heading": "Reminder app",
+        "description": "add different reminders at different times by taking the user input from text boxes [ hour, minute, reminderText ] and remind them at the specific time"
+    }
+]
