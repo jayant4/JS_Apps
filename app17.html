@@ -1,0 +1,71 @@
+<html>
+	<head> </head>
+
+	<body>
+		
+        <div>
+			<input type="button" id="increment" value="Increment" onclick="window.increment1()" />
+            <div id="output1"></div>
+			<input type="button" id="decrement" value="Decrement" onclick="window.decrement1()" />
+		</div>
+
+        <hr/>
+
+        <div>
+			<input type="button" id="increment" value="Increment" onclick="window.increment2()" />
+            <div id="output2"></div>
+			<input type="button" id="decrement" value="Decrement" onclick="window.decrement2()" />
+		</div>
+
+        <hr/>
+
+        <div>
+			<input type="button" id="increment" value="Increment" onclick="window.increment3()" />
+            <div id="output3"></div>
+			<input type="button" id="decrement" value="Decrement" onclick="window.decrement3()" />
+		</div>
+
+		<div>
+			<h1>Hello</h1>
+		</div>
+	</body>
+</html>
+
+<script>
+    
+    window._count1 = 0 ; 
+    window._count2 = 0 ; 
+    window._count3 = 0 ; 
+
+    window.increment1 = function() { 
+        ++window._count1 ;    
+        window.document.getElementById("output1").innerHTML = window._count1;
+    } ;
+
+    window.decrement1 = function() { 
+        --window._count1 ;
+        window.document.getElementById("output1").innerHTML = window._count1;
+    } ;
+
+
+    window.increment2 = function() { 
+        ++window._count2 ;    
+        window.document.getElementById("output2").innerHTML = window._count2;
+    } ;
+
+    window.decrement2 = function() { 
+        --window._count2 ;
+        window.document.getElementById("output2").innerHTML = window._count2;
+    } ;
+
+
+    window.increment3 = function() { 
+        ++window._count3 ;    
+        window.document.getElementById("output3").innerHTML = window._count3;
+    } ;
+
+    window.decrement3 = function() { 
+        --window._count3 ;
+        window.document.getElementById("output1").innerHTML = window._count3;
+    } ;
+</script>

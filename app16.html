@@ -1,0 +1,30 @@
+<html>
+	<head> </head>
+
+	<body>
+		<div>
+			<input type="button" id="increment" value="Increment" onclick="window.increment()" />
+            <div id="output"></div>
+			<input type="button" id="decrement" value="Decrement" onclick="window.decrement()" />
+		</div>
+
+		<div>
+			<h1>Hello</h1>
+		</div>
+	</body>
+</html>
+
+<script>
+    
+    window._count = 0 ; 
+
+    window.increment = function() { 
+        ++window._count ;    
+        window.document.getElementById("output").innerHTML = window._count;
+    } ;
+
+    window.decrement = function() { 
+        --window._count ;
+        window.document.getElementById("output").innerHTML = window._count;
+    } ;
+</script>
