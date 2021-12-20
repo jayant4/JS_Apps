@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    class Counter {
+
+        constructor() {
+            this._count = 0;
+            this._div = null;
+        }
+
+
+        increment() {
+            this._count++;
+            this._div.innerHTML = this._count;
+        }
+
+        decrement() {
+            this._count--;
+            this._div.innerHTML = this._count;
+        }
+
+        createUI() {
+            // create element helps us to create html elements from js code
+            const incrementButton = window.document.createElement("button");
+            incrementButton.innerHTML = "Increment";
+            incrementButton.onclick = () => this.increment(); // this is to pass the refrence of the calling object with the calling fucntion
+            window.document.body.appendChild(incrementButton); // after creating the the element we need to append it to the body of the html document
+
+            this._div = window.document.createElement("div");
+            this._div.innerHTML = this._count;
+            window.document.body.appendChild(this._div);
+
+
+            const decrementButton = window.document.createElement("button");
+            decrementButton.innerHTML = "Decrement";
+            decrementButton.onclick = () => this.decrement();
+            window.document.body.appendChild(decrementButton);
+
+
+            const hr = window.document.createElement("hr");
+            window.document.body.appendChild(hr);
+
+        }
+    }
+
+    const c1 = new Counter();
+    c1.createUI();
+
+    const c2 = new Counter();
+    c2.createUI();
+
+    const c3 = new Counter();
+    c3.createUI();
+
+
+</script>
