@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="button" id="increment" value="Increment" onclick="window.Increment()" />
+        <h3 id="output"></h3>
+        <input type="button" id="decrement" value="Decrement" onclick="window.Decrement()" />
+    </div>
+    <hr/>
+    <div>
+        <input type="button" id="increment2" value="Increment" onclick="window.Increment2()" />
+        <h3 id="output2"></h3>
+        <input type="button" id="decrement2" value="Decrement" onclick="window.Decrement2()" />
+    </div>
+
+</html>
+
+<script>
+
+    window._count = 0;
+    window.Increment = function () {
+        ++window._count;
+        window.document.getElementById("output").innerHTML = window._count;
+    }
+
+    window.Decrement = function () {
+        --window._count;
+        window.document.getElementById("output").innerHTML = window._count;
+    }
+
+    window._count2 = 0;
+    window.Increment2 = function () {
+        ++window._count2;
+        window.document.getElementById("output2").innerHTML = window._count2;
+    }
+
+    window.Decrement2 = function () {
+        --window._count2;
+        window.document.getElementById("output2").innerHTML = window._count2;
+    }
+
+
+</script>
