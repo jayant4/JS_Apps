@@ -16,6 +16,7 @@
         constructor() {
             this._ctx = null;
             this._radius = 0;
+            this._timerId = null;
         }
 
         createUI() {
@@ -30,8 +31,17 @@
             this._radius = canvas.height / 2;
             this._ctx.translate(this._radius, this._radius);
             this._radius = this._radius * 0.90
-            setInterval(this.drawClock, 1000);
 
+        }
+
+        startClock() {
+            this.drawClock(); // to draw clock fisrt time immediately
+            // drtinterval is part of the window object
+            this._timerId = window.setInterval(() => this.drawClock(), 1000);
+        }
+
+        stopClock(){
+            window.clearInterval(this._timerId);
         }
 
         drawClock() {
@@ -111,13 +121,14 @@
 
     const clock1 = new Clock();
     clock1.createUI();
-    clock1.drawClock();
+    clock1.startClock();
+
     const clock2 = new Clock();
     clock2.createUI();
-    clock2.drawClock();
+    clock2.startClock();
 
     const clock3 = new Clock();
     clock3.createUI();
-    clock3.drawClock();
+    clock3.startClock();
 
 </script>
