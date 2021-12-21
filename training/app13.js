@@ -77,3 +77,13 @@ c2.Decrement();
 c2.Decrement();
 
 console.log(c2.GetCount());
+
+
+const arr = [2, 3]; // here the variable arr is only constant, but the actual array of refrences is not constant
+Object.freeze(arr); // to make the array read only , i.e no changes can be made after its declared use objet . freeze
+// now changing anything in the arr will result to an error
+let temp = arr[0];
+arr[0] = arr[1];
+arr[1] = temp;
+arr.push(303);
+console.log(arr);
