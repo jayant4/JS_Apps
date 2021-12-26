@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'counter',
@@ -14,10 +14,13 @@ import { Component } from '@angular/core';
 export class CounterComponent {
     public count = 0;
 
+    @Input() // to recieve data from the parent component we need this decorator
+    public max = 0; // public variable declared to recieve data from parent component
+
     constructor() { }
 
     increment() {
-        this.count++;
+        if (this.count < this.max) ++this.count;
     }
     decrement() {
         if (this.count > 0) this.count--;
