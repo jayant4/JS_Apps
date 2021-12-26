@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'counter',
   template: `
-  <div style = "display:inline-block;">
-  <button (click) = "increment()" >Increment</button>
-  <h3>{{count}}</h3>
-  <button (click)="decrement()">Decrement</button>
+  <div style = "d-flex justify-content-between;">
+  <button class="btn btn-primary rounded-circle" (click) = "increment()" >+</button>
+  <div class="m-3" style="display: inline-block;">{{count}}</div>
   
-  </div>
+  <button class="btn btn-danger rounded-circle" (click)="decrement()">-</button> 
+</div>
   `,
 })
 export class CounterComponent {
