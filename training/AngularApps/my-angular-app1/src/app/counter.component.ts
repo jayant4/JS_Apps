@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'counter',
-  template: `
+    selector: 'counter',
+    template: `
   <div style = "d-flex justify-content-between;">
   <button class="btn btn-primary rounded-circle" (click) = "increment()" >+</button>
   <div class="m-3" style="display: inline-block;">{{count}}</div>
@@ -12,14 +12,17 @@ import { Component } from '@angular/core';
   `,
 })
 export class CounterComponent {
-  public count = 0;
+    public count = 0;
 
-  constructor() {}
+    @Input() // to recieve data from the parent component we need this decorator
+    public max = 0; // public variable declared to recieve data from parent component
 
-  increment() {
-    this.count++;
-  }
-  decrement() {
-    this.count--;
-  }
+    constructor() { }
+
+    increment() {
+        if (this.count < this.max) ++this.count;
+    }
+    decrement() {
+        if (this.count > 0) this.count--;
+    }
 }
