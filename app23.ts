@@ -19,6 +19,9 @@ interface Book {
   price : number ; 
 }
 
+// this interface is used to define the type
+// when compiled to JS this will not get converted and hence will have a zero footprint i.e no memory is comsumed for this in JS
+
 let book : Book ; 
 
 let books : Book[] ; 

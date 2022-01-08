@@ -1,4 +1,4 @@
-function sum ( x : number = 0 , y : number = 0, ...extra : number[] ) { 
+function sum ( x : number = 0 , y : number = 0, ...extra : number[] ) { // spread operator to accept any number of parameters to the fuction
     let result =  x + y ;
     
     for ( let item of extra )
