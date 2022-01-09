@@ -16,10 +16,28 @@ interface Question2 {
 
 @Component({
     selector: "test2",
+    styles: [
+        `
+        .Correct{
+            font-size: 8pt;
+            color: Green
+        }
+        
+        .Wrong{
+            font-size: 8pt;
+            color: Red
+        }
+
+        .NoMarks{
+            font-size: 8pt;
+            color: Gray
+        }
+        `
+    ],
     template: `
     
         <div class="row">
-            <ng-container *ngIf="!isTestFinished">
+            <ng-container >
                 <div class="col-12" *ngFor="let question of questions">
                     <div class="card mt2- mb-2">
                         <div class="card-header">
@@ -29,6 +47,21 @@ interface Question2 {
                             <label>
                                 <input type="checkbox" [(ngModel)] = "option.hasUserSelected"/>
                                 {{option.text}}
+
+                                <span *ngIf="isTestFinished">
+                                    <span *ngIf="option.isCorrect && option.hasUserSelected" class="Correct">
+                                            Correct: +{{ option.marks }}
+                                    </span>
+
+                                    <span *ngIf="!option.isCorrect && option.hasUserSelected" class="Wrong">
+                                            Wrong: -{{ option.marks }}
+                                    </span>
+
+                                    <span *ngIf="!option.hasUserSelected" class="NoMarks">
+                                            No marks
+                                    </span>
+                                </span>
+
                             </label>
                         </div>
                     </div>
@@ -39,7 +72,7 @@ interface Question2 {
         
             
             
-            <div class="col-12" *ngIf="!isTestFinished">
+            <div class="col-12">
             <button class="btn btn-primary" (click)="finish()">Finish</button>
             </div>
         
