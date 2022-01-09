@@ -6,6 +6,7 @@ interface Option2 {
     text: string;
     isCorrect: boolean;
     marks: number;
+    hasUserSelected: boolean
 }
 
 interface Question2 {
@@ -26,7 +27,7 @@ interface Question2 {
 
                     <div class="card-body" *ngFor="let option of question.options">
                         <label>
-                            <input type="checkbox"/>
+                            <input type="checkbox" [(ngModel)] = "option.hasUserSelected"/>
                             {{option.text}}
                         </label>
                     </div>
@@ -42,17 +43,17 @@ export class Test2Component {
         {
             statement: 'AAA',
             options: [
-                { text: "A1", isCorrect: true, marks: 5 },
-                { text: "A2", isCorrect: false, marks: 3 }
+                { text: "A1", isCorrect: true, marks: 5, hasUserSelected: true },
+                { text: "A2", isCorrect: false, marks: 3, hasUserSelected: false }
             ]
         },
         {
             statement: 'BBB',
             options: [
-                { text: "B1", isCorrect: true, marks: 5 },
-                { text: "B2", isCorrect: false, marks: 3 },
-                { text: "B3", isCorrect: true, marks: 5 },
-                { text: "B4", isCorrect: false, marks: 3 },
+                { text: "B1", isCorrect: true, marks: 5, hasUserSelected: false },
+                { text: "B2", isCorrect: false, marks: 3, hasUserSelected: false },
+                { text: "B3", isCorrect: true, marks: 5, hasUserSelected: false },
+                { text: "B4", isCorrect: false, marks: 3, hasUserSelected: true },
             ]
         },
 
