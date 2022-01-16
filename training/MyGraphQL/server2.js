@@ -1,5 +1,6 @@
-import  express  from 'express';
+import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
+
 import {
     GraphQLSchema,
     GraphQLObjectType,
@@ -94,15 +95,50 @@ const RootQueryType = new GraphQLObjectType({
 
 })
 
+const RootMutationType = new GraphQLObjectType({
+    name: 'Mutation',
+    description: 'Root Mutation',
+    fields: () => ({
+        addBook: {
+            type: BookType,
+            description: 'Add a book',
+            args: {
+                name: { type: new GraphQLNonNull(GraphQLString) },
+                authorId: { type: new GraphQLNonNull(GraphQLInt) },
+            },
+            resolve: (parent, args) => {
+                const book = { id: books.length + 1, name: args.name, authorId: args.authorId }
+                books.push(book)
+                return book
+            },
+        },
+        addAuthor: {
+            type: AuthorType,
+            description: 'Add an author',
+            args: {
+                name: { type: new GraphQLNonNull(GraphQLString) }
+            },
+        
+        resolve: (parent, args) => {
+            const author = { id: authors.length + 1, name: args.name }
+            authors.push(author)
+            return author
+        }
+    }
+    })
+})
+
 const schema = new GraphQLSchema({
-   query: RootQueryType,
+    query: RootQueryType,
+    mutation: RootMutationType
 
 });
 
 const app = express();
 app.use('/graphql', graphqlHTTP({
-    schema:schema,
-    graphiql:true
+    schema: schema,
+    graphiql: true
 }))
 
-app.listen(4000,()=> console.log('Go to url localhost:4000/graphql'))
+app.listen(4000, () => console.log('Go to url localhost:4000/graphql'))
+
