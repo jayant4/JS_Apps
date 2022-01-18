@@ -6,5 +6,16 @@
     {
         "heading": "Reminder app",
         "description": "add different reminders at different times by taking the user input from text boxes [ hour, minute, reminderText ] and remind them at the specific time"
+    },
+    {
+        "heading": "School Managment",
+        "description": [
+            "collection classes: list of all classes.  -> class contains class teacher name, strength of class,list of students",
+            " Collection students: list of all students. -> student contains basic details and array of marks "
+        ]
+    },
+    {
+        "heading": "School Time Table managment",
+        "description": "Full fledge full stack app for time table making in school"
     }
 ]
