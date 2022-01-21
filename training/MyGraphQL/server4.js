@@ -17,7 +17,8 @@ const studentType = new GraphQLObjectType({
     fields: {
         _id: { type: GraphQLID },
         name: { type: GraphQLString },
-        class_id: { type: GraphQLID },
+        className: { type: GraphQLString },
+        classId: { type: GraphQLID },
     }
 })
 
@@ -36,10 +37,11 @@ const rootQuery = new GraphQLObjectType({
     name: "Query",
     fields: {
         classes: {
-            type: GraphQLString, 
+            type: new GraphQLList(classType),
             args: {},
-            resolve: (parent, args) => {
-                return "Hello from class"
+            resolve: async (parent, args) => {
+                const result = await mongoRepository.getAllClasses();
+                return result;
             }
         },
 
