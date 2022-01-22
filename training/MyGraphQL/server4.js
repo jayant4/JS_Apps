@@ -65,6 +65,34 @@ const mutation = new GraphQLObjectType({
                     return error;
                 }
             }
+        },
+        addStudent: {
+            type: GraphQLID,
+            args: {
+                name: { type: GraphQLString },
+                classStd: { type: GraphQLString }
+            },
+            async resolve(parent, args) {
+                try {
+                    const result = await mongoRepository.addStudent(args.classStd, args.name);
+                    return result.insertedId;
+
+                } catch (error) {
+                    return error;
+                }
+            }
+        },
+        deleteStudent: {
+            type: GraphQLString,
+            args: {
+                name: { type: GraphQLString }
+            },
+            async resolve(parent, args) {
+                try {
+                    const result = await mongoRepository.deleteStudent(args.name);
+                    return "deleted successfully";
+                } catch (err) { return err; }
+            }
         }
     }
 });
